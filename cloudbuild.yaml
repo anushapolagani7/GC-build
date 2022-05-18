@@ -6,3 +6,5 @@ steps:
         - |
           RESPONSE=$(curl -o /dev/null -s -w "%{http_code}" www.google.com)
           if [ "200" != "$$RESPONSE" ]; then exit 1; fi
+options:
+    logging: CLOUD_LOGGING_ONLY

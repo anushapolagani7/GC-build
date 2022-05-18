@@ -4,7 +4,6 @@ steps:
       args:
         - "-c"
         - |
-          RESPONSE=$(curl -o /dev/null -s -w "%{http_code}" www.google.com)
-          if [ "200" != "$$RESPONSE" ]; then exit 1; fi
+          echo Response Code is `curl -o /dev/null -s -w "%{http_code}" www.google.com`
 options:
     logging: CLOUD_LOGGING_ONLY

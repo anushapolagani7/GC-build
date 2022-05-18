@@ -4,6 +4,12 @@ steps:
       args:
         - "-c"
         - |
+          echo Your value is $$SKY
           echo Response Code is `curl -o /dev/null -s -w "%{http_code}" www.google.com`
+      secretEnv: ['SKY']
 options:
     logging: CLOUD_LOGGING_ONLY
+availableSecrets:
+  secretManager:
+  - versionName: projects/290436022957/secrets/Test/versions/1
+    env: 'SKY'

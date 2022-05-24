@@ -5,7 +5,7 @@ steps:
         - "-c"
         - |
           echo Your value is $$Test
-          echo Response Code is `curl -o /dev/null -s -w "%{http_code}" www.google.com`
+          echo Response Code is `curl -vv -H 'X-Authorization-token: $$TEST' -o /dev/null -s -w "%{http_code}" www.google.com`
       secretEnv: ['Test']
 options:
     logging: CLOUD_LOGGING_ONLY
